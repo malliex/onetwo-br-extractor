@@ -4,7 +4,7 @@ A web-based utility to process OneStream XF XML or Application ZIP exports and c
 
 All processing is done **entirely in your browser** — no files are uploaded to any server, ensuring full privacy and data security.
 
-🟢 You can use it directly from: [https://malliex.github.io/onetwo-br-extractor](https://malliez.github.io/onetwo-br-extractor)
+🟢 You can use it directly from: [https://malliex.github.io/onetwo-br-extractor/](https://malliex.github.io/onetwo-br-extractor/)
 
 ---
 
