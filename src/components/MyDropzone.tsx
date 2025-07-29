@@ -1,4 +1,3 @@
-// src/components/MyDropzone.tsx
 import clsx from "clsx";
 import { useDropzone, type DropzoneProps } from "react-dropzone";
 import { processSingleXml, processZipFile } from "../services/fileProcessor";
@@ -52,6 +51,8 @@ export default function MyDropzone({
   const baseProps: DropzoneProps = {
     accept: {
       "application/zip": [".zip"],
+      "application/x-zip-compressed": [".zip"],
+      "multipart/x-zip": [".zip"],
       "application/xml": [".xml"],
       "text/xml": [".xml"],
     },
