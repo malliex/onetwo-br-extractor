@@ -20,5 +20,5 @@ All processing is done **entirely in your browser** — no files are uploaded to
 
 ## 🔐 Privacy
 
-This tool runs fully client-side using Web Workers and JSZip.  
+This tool runs fully client-side using JSZip.  
 **Nothing is sent over the internet.** Your files stay on your device.
