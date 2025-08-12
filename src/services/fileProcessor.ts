@@ -87,15 +87,22 @@ export function extractBusinessRules(parsed: ParsedXML, zip: JSZip) {
 
     rules.forEach((rule, idx) => {
       try {
-        const ruleName = rule.name || `${sourceKey}_Rule_${idx}`;
-        const ruleType = rule.businessRuleType || "Unknown";
+        const isEncrypted = rule.isEncrypted || false;
 
-        const folderName =
-          ruleTypeToFolderName[ruleType as keyof typeof ruleTypeToFolderName] ??
-          "99.Unknown";
+        if (!isEncrypted) {
+          const ruleName = rule.name || `${sourceKey}_Rule_${idx}`;
+          const ruleType = rule.businessRuleType || "Unknown";
+          const brLangType = rule.businessRuleLanguageType || "CSharp";
+          const fileExt = brLangType === "CSharp" ? ".cs" : ".vb";
 
-        const folder = root.folder(folderName);
-        folder?.file(`${ruleName}.txt`, rule.sourceCode || "");
+          const folderName =
+            ruleTypeToFolderName[
+              ruleType as keyof typeof ruleTypeToFolderName
+            ] ?? "99.Unknown";
+
+          const folder = root.folder(folderName);
+          folder?.file(`${ruleName}.${fileExt}`, rule.sourceCode || "");
+        }
       } catch (err) {
         logError(err, `Failed to process ${sourceKey} rule at index ${idx}`);
       }
